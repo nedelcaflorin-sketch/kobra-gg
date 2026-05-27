@@ -36,7 +36,7 @@ export default function CheckoutPage() {
         clearCart()
         window.location.href = data.url
       } else {
-        alert('Errore: ' + data.error)
+        alert('Errore: ' + (data.error || 'Unknown'))
       }
     } catch (err: any) {
       alert('Errore: ' + err.message)
@@ -66,7 +66,6 @@ export default function CheckoutPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Left: Order Summary -->
           <div className="bg-kobra-gray rounded-xl border border-kobra-green/10 p-6">
             <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
               <Package size={20} className="text-kobra-green" />
@@ -102,7 +101,6 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          <!-- Right: Payment -->
           <div className="space-y-6">
             <div className="bg-kobra-gray rounded-xl border border-kobra-green/10 p-6">
               <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
