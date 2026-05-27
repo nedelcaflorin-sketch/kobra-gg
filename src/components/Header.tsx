@@ -2,11 +2,13 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X, ShoppingCart, Search, User, Zap, LogIn } from 'lucide-react'
+import { Menu, X, ShoppingCart, Search, LogIn } from 'lucide-react'
+import { useCart } from '@/lib/cart'
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { count } = useCart()
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -40,7 +42,7 @@ export default function Header() {
               { label: 'PC Gaming', href: '/pc-gaming/' },
               { label: 'Console', href: '/console/' },
               { label: 'Accessori', href: '/accessori/' },
-              { label: 'Offerte', href: '/', icon: Zap },
+              { label: 'Offerte', href: '/' },
             ].map((item) => (
               <Link
                 key={item.label}
@@ -49,10 +51,7 @@ export default function Header() {
                   item.active ? 'text-kobra-green' : 'text-gray-300 hover:text-kobra-green'
                 }`}
               >
-                <span className="flex items-center gap-1">
-                  {item.icon && <item.icon size={14} className="text-kobra-green" />}
-                  {item.label}
-                </span>
+                <span>{item.label}</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-kobra-green group-hover:w-full transition-all duration-300" />
               </Link>
             ))}
@@ -67,6 +66,11 @@ export default function Header() {
               className="flex items-center justify-center w-10 h-10 rounded-full bg-kobra-green/10 border border-kobra-green/20 text-kobra-green hover:bg-kobra-green/20 transition-all relative"
             >
               <ShoppingCart size={18} />
+              {count > 0 && (
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-kobra-green text-kobra-black text-xs font-bold rounded-full flex items-center justify-center">
+                  {count}
+                </span>
+              )}
             </Link>
             <Link
               href="/login/"

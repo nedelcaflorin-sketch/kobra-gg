@@ -1,7 +1,9 @@
 ﻿'use client'
 
 import Link from 'next/link'
+import { ShoppingCart } from 'lucide-react'
 import { Product } from '@/lib/types'
+import { useCart } from '@/lib/cart'
 import { useState } from 'react'
 import StarRating from './StarRating'
 
@@ -11,6 +13,7 @@ interface ProductCardProps {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const [imageError, setImageError] = useState(false)
+  const { addItem } = useCart()
 
   const discount = product.original_price
     ? Math.round(((product.original_price - product.price) / product.original_price) * 100)
@@ -24,12 +27,21 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   const points = Math.round(product.price)
 
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    addItem({
+      id: product.id,
+      slug: product.slug,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    })
+  }
+
   return (
-    <Link
-      href={`/prodotto/${product.slug}/`}
-      className="group flex gap-4 bg-kobra-black rounded-xl border border-kobra-green/10 hover:border-kobra-green/40 transition-all overflow-hidden p-3"
-    >
-      <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 bg-kobra-gray rounded-lg overflow-hidden">
+    <div className="group flex gap-4 bg-kobra-black rounded-xl border border-kobra-green/10 hover:border-kobra-green/40 transition-all overflow-hidden p-3">
+      <Link href={`/prodotto/${product.slug}/`} className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 bg-kobra-gray rounded-lg overflow-hidden">
         {!imageError ? (
           <img
             src={product.image}
@@ -48,19 +60,15 @@ export default function ProductCard({ product }: ProductCardProps) {
             -{discount}%
           </div>
         )}
-
-        {product.bestseller === 1 && (
-          <div className="absolute top-2 right-2 px-2 py-1 bg-kobra-cyan text-kobra-black text-xs font-bold rounded">
-            BESTSELLER
-          </div>
-        )}
-      </div>
+      </Link>
 
       <div className="flex flex-col justify-between py-1 flex-1">
         <div>
-          <h3 className="font-semibold text-sm md:text-base group-hover:text-kobra-green transition-colors line-clamp-2">
-            {product.name}
-          </h3>
+          <Link href={`/prodotto/${product.slug}/`}>
+            <h3 className="font-semibold text-sm md:text-base group-hover:text-kobra-green transition-colors line-clamp-2">
+              {product.name}
+            </h3>
+          </Link>
           <p className="text-xs text-gray-500 mt-1">{product.subcategory || product.category}</p>
           <div className="mt-2">
             <StarRating rating={4.8} reviews={127} />
@@ -82,8 +90,16 @@ export default function ProductCard({ product }: ProductCardProps) {
             </span>
             <span className="text-xs text-kobra-green">+{points} pts</span>
           </div>
+
+          <button
+            onClick={handleAddToCart}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-kobra-green/10 border border-kobra-green/20 text-kobra-green rounded-lg hover:bg-kobra-green hover:text-kobra-black transition-all text-sm font-semibold"
+          >
+            <ShoppingCart size={16} />
+            Aggiungi al Carrello
+          </button>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
