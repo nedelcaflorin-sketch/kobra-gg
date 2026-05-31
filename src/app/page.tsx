@@ -29,7 +29,7 @@ export default function HomePage() {
                 <span className="text-sm text-kobra-green font-bold tracking-wider uppercase">Offerta Lampo</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-black leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-black leading-tight">
                 <span className="text-white">DOMINA IL</span>
                 <br />
                 <span className="text-kobra-green text-glow-green">GIOCO</span>

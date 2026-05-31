@@ -51,7 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-kobra-black text-kobra-white antialiased">
+      <body className="min-h-screen bg-kobra-black text-kobra-white antialiased overflow-x-hidden">
         <CartProvider>
           <Header />
           <main className="pt-20">

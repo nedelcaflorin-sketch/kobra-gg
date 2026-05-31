@@ -38,9 +38,9 @@ export default function ProductGrid({ category, bestsellerOnly, featuredOnly, li
 
   if (loading) {
     return (
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {Array.from({ length: limit }).map((_, i) => (
-          <div key={i} className="aspect-[3/4] bg-kobra-gray rounded-xl animate-pulse"></div>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+        {Array.from({ length: Math.min(limit, 8) }).map((_, i) => (
+          <div key={i} className="aspect-[3/4] bg-kobra-gray rounded-xl animate-pulse" />
         ))}
       </div>
     )
@@ -55,7 +55,7 @@ export default function ProductGrid({ category, bestsellerOnly, featuredOnly, li
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
