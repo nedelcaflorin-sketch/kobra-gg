@@ -12,13 +12,13 @@ export default function Footer() {
               Gaming gear ai prezzi da Kobra. Spedizione in tutta Europa.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all">
+              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all" aria-label="Instagram">
                 <Instagram size={16} />
               </a>
-              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all">
+              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all" aria-label="YouTube">
                 <Youtube size={16} />
               </a>
-              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all">
+              <a href="#" className="w-8 h-8 rounded bg-kobra-darkgray flex items-center justify-center hover:bg-kobra-green hover:text-kobra-black transition-all" aria-label="TikTok">
                 <MessageCircle size={16} />
               </a>
             </div>
@@ -27,49 +27,58 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white mb-4">Categorie</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/pc-gaming/" className="hover:text-kobra-green">PC Gaming</Link></li>
-              <li><Link href="/laptop/" className="hover:text-kobra-green">Laptop</Link></li>
-              <li><Link href="/accessori/" className="hover:text-kobra-green">Accessori</Link></li>
-              <li><Link href="/console/" className="hover:text-kobra-green">Console</Link></li>
+              <li><Link href="/pc-gaming/" className="hover:text-kobra-green transition-colors">PC Gaming</Link></li>
+              <li><Link href="/laptop/" className="hover:text-kobra-green transition-colors">Laptop</Link></li>
+              <li><Link href="/accessori/" className="hover:text-kobra-green transition-colors">Accessori</Link></li>
+              <li><Link href="/console/" className="hover:text-kobra-green transition-colors">Console</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-4">Assistenza</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link href="/chi-siamo/" className="hover:text-kobra-green">Chi Siamo</Link></li>
-              <li><Link href="/privacy/" className="hover:text-kobra-green">Privacy Policy</Link></li>
-              <li><Link href="/termini/" className="hover:text-kobra-green">Termini e Condizioni</Link></li>
-              <li><Link href="/reso/" className="hover:text-kobra-green">Reso e Rimborsi</Link></li>
-              <li><Link href="/cookie/" className="hover:text-kobra-green">Cookie Policy</Link></li>
+              <li><Link href="/chi-siamo/" className="hover:text-kobra-green transition-colors">Chi Siamo</Link></li>
+              <li><Link href="/contatti/" className="hover:text-kobra-green transition-colors">Contatti</Link></li>
+              <li><Link href="/spedizioni/" className="hover:text-kobra-green transition-colors">Spedizioni</Link></li>
+              <li><Link href="/resi/" className="hover:text-kobra-green transition-colors">Resi e Rimborsi</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Contatti</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-kobra-green" />
-                support@kobra.gg
-              </li>
-              <li className="flex items-center gap-2">
-                <MapPin size={16} className="text-kobra-green" />
-                Italia, Spedizione EU
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="text-kobra-green" />
-                WhatsApp Support
-              </li>
+            <h4 className="font-semibold text-white mb-4">Legale</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><Link href="/privacy/" className="hover:text-kobra-green transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/termini/" className="hover:text-kobra-green transition-colors">Termini e Condizioni</Link></li>
+              <li><Link href="/reso/" className="hover:text-kobra-green transition-colors">Politica di Reso</Link></li>
+              <li><Link href="/cookie/" className="hover:text-kobra-green transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-kobra-green/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">© 2025 Kobra.gg — Tutti i diritti riservati.</p>
-          <div className="flex items-center gap-4">
-            <CreditCard size={20} className="text-gray-500" />
-            <Truck size={20} className="text-gray-500" />
-            <ShieldCheck size={20} className="text-gray-500" />
+        <div className="mt-12 pt-8 border-t border-kobra-green/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500">
+              <p>© 2025 Kobra.gg — Tutti i diritti riservati.</p>
+              <div className="flex items-center gap-3">
+                <a href="mailto:kobra.gg.support@gmail.com" className="flex items-center gap-1 hover:text-kobra-green transition-colors">
+                  <Mail size={14} />
+                  kobra.gg.support@gmail.com
+                </a>
+                <span className="flex items-center gap-1">
+                  <MapPin size={14} />
+                  Italia
+                </span>
+                <span className="flex items-center gap-1">
+                  <Phone size={14} />
+                  WhatsApp
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <CreditCard size={20} className="text-gray-500" />
+              <Truck size={20} className="text-gray-500" />
+              <ShieldCheck size={20} className="text-gray-500" />
+            </div>
           </div>
         </div>
       </div>

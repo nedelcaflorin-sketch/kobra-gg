@@ -10,8 +10,38 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' })
 
 export const metadata: Metadata = {
-  title: 'Kobra.gg — Gaming Gear, Prezzi da Kobra',
-  description: 'Il miglior negozio di accessori gaming in Europa. Prezzi bassi, spedizione veloce, reso 30 giorni.',
+  title: {
+    template: '%s | Kobra.gg - Gaming Gear',
+    default: 'Kobra.gg — Gaming Gear, Prezzi da Kobra',
+  },
+  description: 'Tutto per il gaming: cuffie, mouse, tastiere, controller. Spedizione veloce in tutta Italia.',
+  keywords: ['gaming', 'accessori gaming', 'cuffie gaming', 'mouse gaming', 'tastiere gaming', 'controller', 'PC gaming', 'console gaming'],
+  openGraph: {
+    type: 'website',
+    locale: 'it_IT',
+    url: 'https://kobra-gg.vercel.app',
+    siteName: 'Kobra.gg',
+    title: 'Kobra.gg — Gaming Gear, Prezzi da Kobra',
+    description: 'Tutto per il gaming: cuffie, mouse, tastiere, controller. Spedizione veloce in tutta Italia.',
+    images: [
+      {
+        url: 'https://kobra-gg.vercel.app/logo-main.png',
+        width: 800,
+        height: 600,
+        alt: 'Kobra.gg Gaming Gear',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kobra.gg — Gaming Gear',
+    description: 'Tutto per il gaming: cuffie, mouse, tastiere, controller. Spedizione veloce in tutta Italia.',
+    images: ['https://kobra-gg.vercel.app/logo-main.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({

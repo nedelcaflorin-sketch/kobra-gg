@@ -1,8 +1,15 @@
-﻿import Link from 'next/link'
+﻿import type { Metadata } from 'next'
+import Link from 'next/link'
 import { ArrowRight, Flame, ChevronRight, Star, Zap, Trophy } from 'lucide-react'
 import ProductGrid from '@/components/ProductGrid'
 import CountdownTimer from '@/components/CountdownTimer'
 import LiveNotifications from '@/components/LiveNotifications'
+
+export const metadata: Metadata = {
+  title: 'Kobra.gg — Gaming Gear, Prezzi da Kobra',
+  description: 'Il miglior negozio di accessori gaming in Europa. Cuffie, mouse, tastiere, controller. Prezzi bassi, spedizione veloce in Italia.',
+  keywords: ['gaming gear', 'accessori gaming', 'cuffie gaming', 'mouse gaming', 'tastiere gaming'],
+}
 
 export default function HomePage() {
   return (

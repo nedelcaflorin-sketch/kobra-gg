@@ -1,29 +1,58 @@
-﻿export default function TermsPage() {
+﻿import type { Metadata } from 'next'
+
+export const metadata: Metadata = { title: 'Termini e Condizioni | Kobra.gg' }
+
+export default function TermsPage() {
   return (
-    <div className="min-h-screen py-12">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-display font-bold mb-8">Termini e Condizioni</h1>
-
-        <div className="space-y-6 text-gray-300">
-          <p>Ultimo aggiornamento: 27 maggio 2025</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">1. Generalità</h2>
-          <p>I presenti Termini e Condizioni disciplinano l'utilizzo del sito Kobra.gg e l'acquisto dei prodotti offerti.</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">2. Prodotti e Prezzi</h2>
-          <p>Tutti i prezzi sono indicati in Euro (EUR) e includono l'IVA applicabile. Le spese di spedizione sono calcolate al momento del checkout.</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">3. Pagamento</h2>
-          <p>Accettiamo pagamenti tramite Stripe (carte di credito/debito). Il pagamento viene elaborato in modo sicuro da Stripe; Kobra.gg non memorizza i dati della carta.</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">4. Spedizione</h2>
-          <p>Spediamo in tutta l'Unione Europea. I tempi di consegna stimati sono di 2-5 giorni lavorativi per l'Italia e 3-7 giorni per gli altri paesi UE.</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">5. Reso e Rimborso</h2>
-          <p>Hai diritto di recedere dall'acquisto entro 30 giorni dalla ricezione del prodotto. Il prodotto deve essere restituito integro e nella confezione originale.</p>
-
-          <h2 className="text-xl font-bold text-white mt-8">6. Limitazione di Responsabilità</h2>
-          <p>Kobra.gg non è responsabile per ritardi causati da corrieri o eventi di forza maggiore.</p>
+    <div className="min-h-screen py-16 px-4">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-display font-black text-white mb-2">Termini e Condizioni</h1>
+        <p className="text-gray-400 mb-10">Ultima modifica: gennaio 2025</p>
+        <div className="space-y-8 text-gray-300">
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">1. Informazioni Generali</h2>
+            <p>Il sito Kobra.gg è un negozio online di accessori gaming. Accedendo e acquistando su questo sito, accetti i presenti Termini e Condizioni. Ti invitiamo a leggerli attentamente prima di effettuare un ordine.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">2. Prodotti e Prezzi</h2>
+            <p>I prezzi sono espressi in Euro (€) e includono l'IVA applicabile. Ci riserviamo il diritto di modificare i prezzi in qualsiasi momento. Il prezzo applicato sarà quello indicato al momento della conferma dell'ordine.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">3. Ordini e Contratto</h2>
+            <p>Inviando un ordine, l'utente fa un'offerta d'acquisto vincolante. Il contratto si considera concluso al momento della conferma via email. Ci riserviamo il diritto di rifiutare ordini in caso di indisponibilità dei prodotti o sospetta frode.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">4. Pagamento</h2>
+            <p>Accettiamo pagamenti tramite carta di credito/debito, elaborati in modo sicuro da Stripe. Kobra.gg non memorizza i dati della tua carta di pagamento. Il pagamento deve essere effettuato integralmente al momento dell'ordine.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">5. Spedizione e Consegna</h2>
+            <p>Spediamo in tutta Europa. I tempi di consegna stimati sono di 3-15 giorni lavorativi dalla conferma dell'ordine. Essendo un servizio dropshipping, i prodotti vengono spediti direttamente dai nostri fornitori. Non siamo responsabili di ritardi causati da corrieri o eventi di forza maggiore.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">6. Diritto di Recesso (14 giorni)</h2>
+            <p>Ai sensi del D.Lgs. 206/2005 (Codice del Consumo), hai il diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto, senza dover fornire alcuna motivazione. Per esercitare il diritto di recesso, contattaci a <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a>. Consulta la nostra <a href="/resi/" className="text-kobra-green hover:underline">Politica di Reso</a> per i dettagli.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">7. Garanzia Legale</h2>
+            <p>I prodotti venduti sono coperti dalla garanzia legale di conformità prevista dal D.Lgs. 206/2005 per 2 anni dall'acquisto.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">8. Limitazione di Responsabilità</h2>
+            <p>Kobra.gg non sarà responsabile per danni indiretti, incidentali o consequenziali derivanti dall'uso dei prodotti acquistati o dall'utilizzo del sito web.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">9. Risoluzione delle Controversie</h2>
+            <p>Le parti si impegnano a tentare una soluzione amichevole per qualsiasi controversia. La piattaforma ODR dell'UE è disponibile su <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-kobra-green hover:underline">ec.europa.eu/consumers/odr</a>.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">10. Legge Applicabile</h2>
+            <p>I presenti Termini sono regolati dalla legge italiana. La giurisdizione competente è quella italiana.</p>
+          </section>
+          <section>
+            <h2 className="text-xl font-bold text-white mb-3">11. Contatti</h2>
+            <p>Per domande: <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a></p>
+          </section>
         </div>
       </div>
     </div>

@@ -1,112 +1,119 @@
 ﻿'use client'
 
-import { useState } from 'react'
-import { LogIn, Package, DollarSign, Users, TrendingUp } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Package, DollarSign, TrendingUp, Clock } from 'lucide-react'
 
-export default function AdminPage() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+interface Order {
+  id: number
+  email: string
+  name: string
+  total: number
+  status: string
+  created_at: string
+}
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (password === 'kobra2026!') {
-      setLoggedIn(true)
-      setError('')
-    } else {
-      setError('Password errata')
-    }
+export default function AdminDashboardPage() {
+  const [orders, setOrders] = useState<Order[]>([])
+  const [productCount, setProductCount] = useState(0)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    Promise.all([
+      fetch('/api/orders').then((r) => r.json()),
+      fetch('/api/products?limit=1000').then((r) => r.json()),
+    ]).then(([ordersData, productsData]) => {
+      setOrders(ordersData.orders || [])
+      setProductCount((productsData.products || []).length)
+      setLoading(false)
+    }).catch(() => setLoading(false))
+  }, [])
+
+  const paidOrders = orders.filter((o) => o.status === 'paid')
+  const revenue = paidOrders.reduce((sum, o) => sum + o.total, 0)
+  const latest5 = orders.slice(0, 5)
+
+  const statusLabel: Record<string, string> = {
+    pending: 'In attesa',
+    paid: 'Pagato',
+    processing: 'In elaborazione',
+    shipped: 'Spedito',
+    delivered: 'Consegnato',
   }
-
-  if (!loggedIn) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-md p-8 bg-kobra-gray rounded-xl border border-kobra-green/20">
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-kobra-green/10 flex items-center justify-center">
-              <LogIn size={32} className="text-kobra-green" />
-            </div>
-            <h1 className="text-2xl font-display font-bold">Admin Kobra</h1>
-            <p className="text-gray-400 mt-2">Accedi al pannello di controllo</p>
-          </div>
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-kobra-black border border-kobra-green/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-kobra-green"
-            />
-            {error && <p className="text-red-400 text-sm">{error}</p>}
-            <button
-              type="submit"
-              className="w-full px-6 py-3 bg-kobra-green text-kobra-black font-bold rounded-lg hover:bg-kobra-green/90"
-            >
-              Accedi
-            </button>
-          </form>
-        </div>
-      </div>
-    )
+  const statusColor: Record<string, string> = {
+    pending: 'text-yellow-400',
+    paid: 'text-kobra-green',
+    processing: 'text-kobra-cyan',
+    shipped: 'text-blue-400',
+    delivered: 'text-green-400',
   }
 
   return (
-    <div className="min-h-screen py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-10">
-          <h1 className="text-3xl font-display font-bold">Dashboard <span className="text-kobra-green">Admin</span></h1>
-          <button
-            onClick={() => setLoggedIn(false)}
-            className="px-4 py-2 text-sm text-gray-400 hover:text-white"
-          >
-            Esci
-          </button>
-        </div>
+    <div className="py-10 px-6">
+      <h1 className="text-3xl font-display font-bold mb-8">
+        Dashboard <span className="text-kobra-green">Admin</span>
+      </h1>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-          {[
-            { label: 'Ordini', value: '12', icon: Package, color: 'text-kobra-green' },
-            { label: 'Fatturato', value: '1,247€', icon: DollarSign, color: 'text-kobra-cyan' },
-            { label: 'Clienti', value: '8', icon: Users, color: 'text-kobra-green' },
-            { label: 'Prodotti', value: '86', icon: TrendingUp, color: 'text-kobra-cyan' },
-          ].map((stat) => (
-            <div key={stat.label} className="p-6 bg-kobra-gray rounded-xl border border-kobra-green/10">
-              <stat.icon size={24} className={stat.color + ' mb-3'} />
-              <p className="text-2xl font-bold">{stat.value}</p>
-              <p className="text-sm text-gray-400">{stat.label}</p>
-            </div>
-          ))}
+      {loading ? (
+        <div className="flex items-center justify-center py-20">
+          <div className="w-8 h-8 border-2 border-kobra-green border-t-transparent rounded-full animate-spin" />
         </div>
-
-        {/* Recent Orders */}
-        <div className="bg-kobra-gray rounded-xl border border-kobra-green/10 p-6">
-          <h2 className="text-xl font-bold mb-4">Ordini Recenti</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-gray-400 border-b border-kobra-green/10">
-                  <th className="text-left py-3">ID</th>
-                  <th className="text-left py-3">Cliente</th>
-                  <th className="text-left py-3">Totale</th>
-                  <th className="text-left py-3">Stato</th>
-                  <th className="text-left py-3">Data</th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-300">
-                <tr className="border-b border-kobra-green/5">
-                  <td className="py-3">#KBR-001</td>
-                  <td className="py-3">mario.rossi@email.it</td>
-                  <td className="py-3 text-kobra-green">89.97€</td>
-                  <td className="py-3"><span className="px-2 py-1 bg-yellow-500/10 text-yellow-400 rounded text-xs">In elaborazione</span></td>
-                  <td className="py-3">27/05/2025</td>
-                </tr>
-              </tbody>
-            </table>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            {[
+              { label: 'Prodotti', value: productCount, icon: Package, color: 'text-kobra-green' },
+              { label: 'Ordini Totali', value: orders.length, icon: TrendingUp, color: 'text-kobra-cyan' },
+              { label: 'Ordini Pagati', value: paidOrders.length, icon: DollarSign, color: 'text-kobra-green' },
+              { label: 'Fatturato', value: `${revenue.toFixed(2)}€`, icon: DollarSign, color: 'text-kobra-cyan' },
+            ].map((stat) => (
+              <div key={stat.label} className="p-5 bg-kobra-gray rounded-xl border border-kobra-green/10">
+                <stat.icon size={22} className={stat.color + ' mb-3'} />
+                <p className="text-2xl font-bold">{stat.value}</p>
+                <p className="text-sm text-gray-400">{stat.label}</p>
+              </div>
+            ))}
           </div>
-        </div>
-      </div>
+
+          <div className="bg-kobra-gray rounded-xl border border-kobra-green/10 overflow-hidden">
+            <div className="px-6 py-4 border-b border-kobra-green/10">
+              <h2 className="font-bold text-lg">Ultimi 5 Ordini</h2>
+            </div>
+            {latest5.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-12 text-gray-500">
+                <Clock size={32} className="mb-3 opacity-40" />
+                <p>Nessun ordine ancora</p>
+              </div>
+            ) : (
+              <table className="w-full text-sm">
+                <thead className="bg-kobra-black">
+                  <tr className="text-gray-400">
+                    <th className="text-left p-4">ID</th>
+                    <th className="text-left p-4">Email</th>
+                    <th className="text-left p-4">Totale</th>
+                    <th className="text-left p-4">Stato</th>
+                    <th className="text-left p-4">Data</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {latest5.map((order) => (
+                    <tr key={order.id} className="border-t border-kobra-green/5 hover:bg-kobra-green/5">
+                      <td className="p-4 font-mono text-kobra-green">#{String(order.id).padStart(4, '0')}</td>
+                      <td className="p-4">{order.email || '-'}</td>
+                      <td className="p-4 font-bold">{order.total.toFixed(2)}€</td>
+                      <td className={`p-4 font-medium ${statusColor[order.status] || 'text-gray-400'}`}>
+                        {statusLabel[order.status] || order.status}
+                      </td>
+                      <td className="p-4 text-gray-400 text-xs">
+                        {new Date(order.created_at).toLocaleDateString('it-IT')}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
+import { addOrder, invalidateCache } from '@/lib/db'
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,7 +9,7 @@ export async function POST(request: NextRequest) {
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: items.map((item: any) => ({
+      line_items: items.map((item: { name: string; image?: string; price: number; quantity: number }) => ({
         price_data: {
           currency: 'eur',
           product_data: {
@@ -29,9 +30,35 @@ export async function POST(request: NextRequest) {
       locale: 'it',
     })
 
+    // Save pending order to DB
+    try {
+      const total = items.reduce(
+        (sum: number, item: { price: number; quantity: number }) => sum + item.price * item.quantity,
+        0
+      )
+      invalidateCache()
+      addOrder({
+        email: email || '',
+        name: '',
+        address: '',
+        city: '',
+        postal_code: '',
+        country: 'IT',
+        phone: null,
+        total,
+        status: 'pending',
+        stripe_session_id: session.id,
+        tracking: null,
+      })
+    } catch (dbError) {
+      console.error('DB order save error:', dbError)
+      // Don't block checkout if DB fails
+    }
+
     return NextResponse.json({ url: session.url })
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Errore interno'
     console.error('Stripe error:', error)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }

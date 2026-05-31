@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Menu, X, ShoppingCart, Search, LogIn } from 'lucide-react'
+import { Menu, X, ShoppingCart, Search, LogIn, Settings } from 'lucide-react'
 import { useCart } from '@/lib/cart'
 
 export default function Header() {
@@ -71,6 +71,13 @@ export default function Header() {
                   {count}
                 </span>
               )}
+            </Link>
+            <Link
+              href="/admin/"
+              className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-kobra-green/10 border border-kobra-green/20 text-kobra-green hover:bg-kobra-green/20 transition-all"
+              title="Admin"
+            >
+              <Settings size={18} />
             </Link>
             <Link
               href="/login/"
