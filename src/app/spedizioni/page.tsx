@@ -62,7 +62,7 @@ export default function SpedizioniPage() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Problemi con la Spedizione?</h2>
-            <p>Se il tuo ordine non arriva entro i tempi previsti o hai problemi con il tracking, contattaci a <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a>.</p>
+            <p>Se il tuo ordine non arriva entro i tempi previsti o hai problemi con il tracking, contattaci a <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a> oppure su <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" className="text-kobra-green hover:underline">WhatsApp</a>.</p>
           </section>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default function PrivacyPage() {
         <div className="space-y-8 text-gray-300">
           <section>
             <h2 className="text-xl font-bold text-white mb-3">1. Titolare del Trattamento</h2>
-            <p>Kobra.gg, Italia. Contatto: <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a></p>
+            <p>Kobra.gg, Italia. Contatto: <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a></p>
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">2. Dati Raccolti</h2>
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">6. I Tuoi Diritti (GDPR)</h2>
-            <p>Hai il diritto di: accesso, rettifica, cancellazione ("diritto all'oblio"), limitazione del trattamento, portabilità dei dati, opposizione al trattamento. Per esercitare questi diritti contattaci a <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a>. Hai anche il diritto di presentare reclamo all'Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it).</p>
+            <p>Hai il diritto di: accesso, rettifica, cancellazione ("diritto all'oblio"), limitazione del trattamento, portabilità dei dati, opposizione al trattamento. Per esercitare questi diritti contattaci a <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a>. Hai anche il diritto di presentare reclamo all'Autorità Garante per la Protezione dei Dati Personali (www.garanteprivacy.it).</p>
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">7. Cookie</h2>

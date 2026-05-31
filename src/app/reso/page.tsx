@@ -25,7 +25,7 @@ export default function ResiPage() {
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Come Effettuare un Reso</h2>
             <ol className="list-decimal list-inside space-y-3 ml-4">
-              <li>Invia una email a <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a> con oggetto <strong className="text-white">"Richiesta Reso"</strong> e il numero del tuo ordine.</li>
+              <li>Invia una email a <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a> con oggetto <strong className="text-white">"Richiesta Reso"</strong> e il numero del tuo ordine.</li>
               <li>Il nostro team ti risponderà entro 48 ore con le istruzioni e l'indirizzo di reso.</li>
               <li>Imballa accuratamente il prodotto e spediscilo all'indirizzo indicato (le spese di spedizione del reso sono a carico del cliente, salvo prodotto difettoso).</li>
               <li>Una volta ricevuto e verificato il prodotto, procederemo con il rimborso.</li>
@@ -45,7 +45,7 @@ export default function ResiPage() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Contatti</h2>
-            <p>Per qualsiasi richiesta: <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a></p>
+            <p>Per qualsiasi richiesta: <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a></p>
           </section>
         </div>
       </div>

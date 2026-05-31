@@ -60,18 +60,18 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-500">
               <p>© 2025 Kobra.gg — Tutti i diritti riservati.</p>
               <div className="flex items-center gap-3">
-                <a href="mailto:kobra.gg.support@gmail.com" className="flex items-center gap-1 hover:text-kobra-green transition-colors">
+                <a href="mailto:nedelcaflorin@gmail.com" className="flex items-center gap-1 hover:text-kobra-green transition-colors">
                   <Mail size={14} />
-                  kobra.gg.support@gmail.com
+                  nedelcaflorin@gmail.com
                 </a>
                 <span className="flex items-center gap-1">
                   <MapPin size={14} />
                   Italia
                 </span>
-                <span className="flex items-center gap-1">
+                <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-kobra-green transition-colors">
                   <Phone size={14} />
-                  WhatsApp
-                </span>
+                  +39 379 153 6175
+                </a>
               </div>
             </div>
             <div className="flex items-center gap-4">

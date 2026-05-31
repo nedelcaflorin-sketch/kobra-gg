@@ -16,8 +16,8 @@ export default function ContattiPage() {
               <Mail size={22} className="text-kobra-green" />
             </div>
             <h3 className="font-bold text-white mb-2">Email</h3>
-            <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline text-sm break-all">
-              kobra.gg.support@gmail.com
+            <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline text-sm break-all">
+              nedelcaflorin@gmail.com
             </a>
           </div>
           <div className="p-6 bg-kobra-gray rounded-xl border border-kobra-green/10 text-center">
@@ -25,7 +25,9 @@ export default function ContattiPage() {
               <MessageCircle size={22} className="text-kobra-green" />
             </div>
             <h3 className="font-bold text-white mb-2">WhatsApp</h3>
-            <p className="text-gray-400 text-sm">Disponibile tramite il pulsante in basso a destra del sito</p>
+            <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" className="text-kobra-green hover:underline text-sm">
+              +39 379 153 6175
+            </a>
           </div>
           <div className="p-6 bg-kobra-gray rounded-xl border border-kobra-green/10 text-center">
             <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-kobra-green/10 flex items-center justify-center">
@@ -38,11 +40,15 @@ export default function ContattiPage() {
         </div>
 
         <div className="bg-kobra-gray rounded-xl border border-kobra-green/10 p-8">
-          <h2 className="text-xl font-bold text-white mb-4">Contattaci via Email</h2>
+          <h2 className="text-xl font-bold text-white mb-4">Contattaci</h2>
           <p className="text-gray-400 mb-6">
             Scrivi direttamente a{' '}
-            <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline font-medium">
-              kobra.gg.support@gmail.com
+            <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline font-medium">
+              nedelcaflorin@gmail.com
+            </a>{' '}
+            oppure scrivici su{' '}
+            <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" className="text-kobra-green hover:underline font-medium">
+              WhatsApp (+39 379 153 6175)
             </a>{' '}
             indicando:
           </p>
@@ -51,12 +57,22 @@ export default function ContattiPage() {
             <li>Il tuo nome e cognome</li>
             <li>La descrizione del problema o della richiesta</li>
           </ul>
-          <a
-            href="mailto:kobra.gg.support@gmail.com"
-            className="inline-block px-6 py-3 bg-kobra-green text-kobra-black font-bold rounded-lg hover:bg-kobra-green/90 transition-all text-sm"
-          >
-            Invia Email
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:nedelcaflorin@gmail.com"
+              className="inline-block px-6 py-3 bg-kobra-green text-kobra-black font-bold rounded-lg hover:bg-kobra-green/90 transition-all text-sm"
+            >
+              Invia Email
+            </a>
+            <a
+              href="https://wa.me/393791536175"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 border border-kobra-green/30 text-kobra-green font-bold rounded-lg hover:bg-kobra-green/10 transition-all text-sm"
+            >
+              Apri WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">6. Diritto di Recesso (14 giorni)</h2>
-            <p>Ai sensi del D.Lgs. 206/2005 (Codice del Consumo), hai il diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto, senza dover fornire alcuna motivazione. Per esercitare il diritto di recesso, contattaci a <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a>. Consulta la nostra <a href="/resi/" className="text-kobra-green hover:underline">Politica di Reso</a> per i dettagli.</p>
+            <p>Ai sensi del D.Lgs. 206/2005 (Codice del Consumo), hai il diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto, senza dover fornire alcuna motivazione. Per esercitare il diritto di recesso, contattaci a <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a>. Consulta la nostra <a href="/resi/" className="text-kobra-green hover:underline">Politica di Reso</a> per i dettagli.</p>
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">7. Garanzia Legale</h2>
@@ -51,7 +51,7 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-bold text-white mb-3">11. Contatti</h2>
-            <p>Per domande: <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a></p>
+            <p>Per domande: <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a> — WhatsApp: <a href="https://wa.me/393791536175" target="_blank" rel="noopener noreferrer" className="text-kobra-green hover:underline">+39 379 153 6175</a></p>
           </section>
         </div>
       </div>

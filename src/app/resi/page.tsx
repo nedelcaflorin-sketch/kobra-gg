@@ -24,7 +24,7 @@ export default function ResiPage() {
           <section>
             <h2 className="text-xl font-bold text-white mb-3">Come fare un Reso</h2>
             <ol className="list-decimal list-inside space-y-3 ml-4">
-              <li>Contatta <a href="mailto:kobra.gg.support@gmail.com" className="text-kobra-green hover:underline">kobra.gg.support@gmail.com</a> con il numero ordine</li>
+              <li>Contatta <a href="mailto:nedelcaflorin@gmail.com" className="text-kobra-green hover:underline">nedelcaflorin@gmail.com</a> con il numero ordine</li>
               <li>Attendi le istruzioni (risposta entro 48h)</li>
               <li>Spedisci il prodotto all'indirizzo indicato</li>
               <li>Ricevi il rimborso entro 14 giorni lavorativi</li>
